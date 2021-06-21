@@ -12,10 +12,12 @@ import { ApplicationModal } from '../state/application/actions'
 import { useModalOpen, useToggleModal } from '../state/application/hooks'
 import DarkModeQueryParamReader from '../theme/DarkModeQueryParamReader'
 import { RedirectPathToSwapOnly, RedirectToSwap } from './Swap/redirects'
-import Pool from './Pool'
+import Deposit from './Deposit'
+import Borrow from './Borrow'
+import Market from './Market'
 import Swap from './Swap'
+import Pool from './Pool'
 import Vote from './Vote'
-import { PositionPage } from './Pool/PositionPage'
 import { ThemedBackground } from '../theme'
 import ApeModeQueryParamReader from 'hooks/useApeModeQueryParamReader'
 
@@ -77,10 +79,10 @@ export default function App() {
             <TopLevelModals />
             <Web3ReactManager>
               <Switch>
-                <Route exact strict path="/market" component={Vote} />
                 <Route exact strict path="/swap" component={Swap} />
-                <Route exact strict path="/borrow" component={Pool} />
-                <Route exact strict path="/pool/:tokenId" component={PositionPage} />
+                <Route exact strict path="/deposit" component={Deposit} />
+                <Route exact strict path="/borrow" component={Borrow} />
+                <Route exact strict path="/market" component={Market} />
                 <Route component={RedirectPathToSwapOnly} />
               </Switch>
             </Web3ReactManager>
